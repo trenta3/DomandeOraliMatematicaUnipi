@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{article}
+
+\title{Domande orale Aritmetica 2014-2015}
+\author{}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[italian]{babel}
+\usepackage{xifthen}
+\usepackage{xparse}
+
+% Definiamo i vari ambienti
+\NewDocumentCommand{\ZZ}{G{}}{
+  \IfNoValueTF{#1}
+	{\mathbb{Z}}
+	{\mathbb{Z}_{#1}}
+}
+\NewDocumentCommand{\FF}{G{}}{
+  \IfNoValueTF{#1}
+	{\mathbb{F}}
+	{\mathbb{F}_{#1}}
+}
+
+
+\newcommand{\su}[2]{\sfrac{#1}{#2}}
+
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\KK}{\mathbb{K}}
+%\newcommand{\FF}[1]{\mathbb{F}_{#1}}
+%\newcommand{\ZZ}[1]{\mathbb{Z}_{#1}}
+
+\newcommand{\Nplus}{\NN^{+}}
+
+\newcommand{\cart}{\times}
+\newcommand{\Mtr}[3]{\mathcal{M}(#1, #2, #3)}
+
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\tc}{\mbox{ t.c. }}
+
+\newcommand{\Zx}{\mathbb{Z}[x]}
+\newcommand{\Qx}{\QQ[x]}
+\newcommand{\Zp}{\su{\mathbb{Z}}{p\mathbb{Z}}}
+\newcommand{\Zpx}{\Zp [x]}
+\newcommand{\Hint}{{\bf Hint: }}
+\newcommand{\Ker}{\mathcal{K}\mbox{er} }
+\newcommand{\degree}{\mbox{deg}}
+
+\newcommand{\MCD}[2]{\mathcal{(} #1 \mathcal{,} #2 \mathcal{)}}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Un polinomio $p \in \Zx$ pu\`o essere riducibile o irriducibile. Lo stesso polinomio, preso con coefficienti in $\Zpx$ pu\`o essere riducibile o irriducibile. Che relazione c'\`e tra queste due cose? \\ (Attenzione se su $\Zp$ la scoposizione diventa banale)
+\item Capire se $-1$ \`e residuo quadratico modulo $p$ (\Hint si pu\`o dare per scontato che esista un generatore)
+\item Sia $q \in \Zx$ un polinomio irriducible. Si chiede se $\exists p \in \PP$ tale che $q$ modulo $p$ \`e riducibile?
+\item $G$ gruppo abeliano finito, $H \lhd G$. Sappiamo che sia $H$ che $\su{G}{H}$ sono ciclici. Si pu\`o dedurre che $G$ \`e ciclico? Se no, c'\`e una qualche altra ipotesi che mi permette di dedurlo? (\Hint pensare agli ordini di $H$ e $\su{G}{H}$)
+\item Fai un esempio di due anelli isomorfi come spazi vettoriali ma non come anelli
+\item Consideriamo $\sigma : \Nplus \rightarrow \Nplus$ definita come $\sigma(n) = \sum_{d \mid n} d$. Dimostrarne la moltiplicativit\`a, ovvero che $\sigma(mn) = \sigma(m)\cdot\sigma(n) \quad \mbox{se } \MCD{n}{m}=1$
+\item Si consideri in $\Mtr{\KK}{n}{n}$ l'insieme delle matrici quadrate invertibili di ordine $n$ a coefficienti nel campo $\KK$. Dimostrare che è un gruppo. \\ Consideriamo $\Mtr{\FF{11}}{2}{2}$. Non \`e un gruppo abeliano ma mostriamo che esiste un sottogruppo normale. (\Hint prendiamo l'insieme delle matrici il cui determinante \ldots) \\ Sappiamo che ogni sottogruppo normale di un gruppo \`e $\Ker$ di un omomorfismo. Sai trovare un omomorfismo $\varphi : \Mtr{\FF{11}}{2}{2}  \rightarrow \FF{11}$ che abbia come $\Ker$ il sottogruppo delle matrici con determinante che è un quadrato in $\FF{11}$?
+\item Quanti sono i polinomi irriducibili di grado $n$ su $\FF{p}$? (\Hint pu\`o essere utile provare prima il caso dei polinomi di secondo grado. \Hint in alternativa si possono contare i polinomi riducibili.) \Hint Altrimenti dimostrate che $$\prod_{\begin{matrix} p(x) \mbox{ \small irriducibile} \\ \deg(p(x)) \mid n \end{matrix}} p(x) = x^{p^n}-x$$
+\item Sia $G = \gen{x_1, x_2}$ un gruppo e $H < G$ un sottogruppo. \`E vero che anche $H$ \`e generato da al pi\`u due elementi? Se \`e falso trovare un controesempio. (Provare prima il caso $H \lhd G$, poi il caso generale) (\Hint una volta \`e vero, l'altra \`e falso)
+\item Descrivere i sottogruppi di $G = \ZZ{10}\cart\ZZ{5}$ e contare i sottogruppi $H \lhd V$ tali che $\mid H \mid = 1000$ e $V = \ZZ{1000}\cart\ZZ{500}$. E quanti sono i sottogruppi $H \lhd V$ tali che $\mid H \mid = 5$?
+\item Considera l'insieme $W = \left\{ p(x) \in \ZZ{5} [x] \right\}$. Ogni polinomio $p \in W$ lo posso vedere come funzione $f_p: \ZZ{5} \rightarrow \ZZ{5}$ associando ad ogni polinomio la funzione valutazione sui suoi elementi. \\ Esistono polinomi distinti la cui funzione associata \`e la stessa? \\ Sia $\varphi$ l'omomorfismo che ad un polinomio associa la sua funzione polinomiale in $\Zp$. Qual'\`e il $\Ker$ di questa funzione? E l'immagine di $\varphi$ quanti elementi ha?
+\item Siano $\alpha, \beta \mbox{ algebrici su } \QQ$ tali che $\degree(\alpha) = m$ e $\degree(\beta) = n$. Quali sono i possibili valori per $\degree(\alpha + \beta)$? Qual \`e il minimo $\degree(\alpha + \beta)$ fissati $m$ ed $n$?
+\item $(\QQ, +)$ \`e ciclico? Quanti generatori ha? \\ (\Hint considera le frazioni con numeratore uno e denominatore potenza di un primo) Dimostra che quelli che hai trovato generano.
+\item Sia $H < G$, con $G$ gruppo ciclico finito. Dimostra che anche $H$ \`e ciclico. Vale anche nel caso $\mid G \mid = +\infty$?
+\item $\forall n \in \NN \mbox{ sia } z_n = e^{i\frac{2\pi}{n}}$. Che cosa ottengo se aggiungo $z_n$ a $\QQ$? E se aggiungo $z_n \mbox{ e } z_m \quad \mbox{ con } m \neq n$? \\ Calcola il grado dell'estensione di campo $\left[ \QQ (z_n, z_m) : \QQ \right]$ (\Hint $\left[ \QQ(z_n) : \QQ \right] = \varphi(n)$) \\ Dimostra che se ho $\MCD{n}{m} = 1$ allora $\QQ(z_{nm}) = \QQ(z_n, z_m)$. \\ Dimostra che $\sum_{j=0}^{p-1} x^j$ \`e irriducibile su $\QQ[x]$.
+\item Trova un $\su{\ZZ{}}{n\ZZ{}}[x]$ in cui esiste un polinomio $p(x)$ tale che $\exists k \in \NN \quad p^k = 0$. Esistono polinomi invertibili in $\su{\ZZ{}}{6\ZZ{}}[x]$? \\ Sia $p(x) = \sum_{i=0}^{n} a_i x^i \tc \exists k \in \NN \quad p^k=0$. Dimostra che allora $a_i$ \`e nilpotente $\forall 0 \ge i \le n$
+\item Sia $f(x) = x^{14}+2 \in \FF{13}[x]$. Trovane il campo di spezzamento.
+\item Sia $G = (\su{\ZZ{}}{m\ZZ{}})^*$ un gruppo e $f: G \rightarrow G$ definita come $f(x) = x^5$ una funzione. \`E un morfismo? Quando \`e iniettiva e quando e suriettiva (al variare di $m$)? \\ Mostra che $\Ker \varphi \simeq \underbrace{\ZZ{5}\cart\ZZ{5}\cart\ldots\cart\ZZ{5}}_{\mbox{un po' di volte}}$. \\ Trova un $G$ tale che $\Ker \varphi \simeq \ZZ{5}\cart\ZZ{5}$.
+\item Dimostrare che $\forall p \in \PP \qquad x^{p-1}+x^{p-2}+\ldots+x+1 \in \QQ[x]$ \`e irriducibile. Dimostra che $f(x)$ \`e irriducibile in $\QQ$ $\Leftrightarrow$ $f(x+a)$ \`e irriducibile, con $a \in \QQ$ \\ Per quali $n \in \NN$ si ha $x^n+x^{n-1}+\ldots+x+1$ irriducibile?
+\item Quand'\`e che esiste $(3x+5)^{-1}$ in $\ZZ{100}$? (con $x$ parametro). \\ So che $x^2 \equiv a \quad (p)$. Quando $\exists y \tc y^2 \equiv (p^2)$? \\ (\Hint provare $y=x+bp$) \\ $\sqrt{2}+\sqrt{3}+\sqrt{5}$ \`e algebrico sui razionali? Trova un polinomio su cui si annulla e trova una base di $\QQ(\sqrt{2}, \sqrt{3}, \sqrt{5})$ \\ Sia $\KK$ un campo che contiene $\QQ$. Quando $\KK(\sqrt{a}) = \KK(\sqrt{b})$?
+\end{enumerate}
+
+\end{document}
