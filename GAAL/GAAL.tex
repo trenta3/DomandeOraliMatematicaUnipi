@@ -1,0 +1,48 @@
+\documentclass[a4paper,NoNotes,GeneralMath]{stdmdoc}
+
+\newcommand{\ssv}{\mbox{ sottospazio vettoriale di }}
+\newcommand{\Char}{\mbox{char }}
+
+\begin{document}
+	\title {Domande orali di GAAL}
+	\autodate
+
+	\section*{Consigli per l'orale}
+	\begin{itemize}
+		\item L'orale è per la maggiorparte teorico, viene chiesto di conoscere bene e precisamente gli enunciati e le dimostrazioni (ed i controesempi) di tutto ciò che è stato fatto a lezione (tutto può essere chiesto)
+		\item \'E molto importante conoscere benissimo le definizioni e precisarle sempre (ad esempio un autovettore deve essere diverso da $0$)
+		\item La Fortuna vuole molta precisione nelle risposte ed è meglio scriverle piuttosto che dirgliele solo a voce. E non dimenticatevi i quantificatori.
+		\item Comunque sia agli orali non morde, ed ha alzato i voti mediamente di 4/5 punti a chi è andato bene e non li ha abbassati a nessuno)
+	\end{itemize}
+
+	\section*{Sessione Giugno 2015}
+	\begin{itemize}
+		\item $W \ssv \bbK ^n$. Rappresentazione parametrica e cartesiana (Chi è lo spazio dei parametri? Chi è l'applicazione $L_A: \bbK^k \rar \bbK^n$ che ha come immagine $W$? Che limiti abbiamo su $s$ se scriviamo $W$ come $\Ker B$ con $L_B: \bbK^n \rar \bbK^s$?) Passaggio tra le due rappresentazioni.
+		\item $f \in \End(V)$. Cos'è $m_f(t)$? Quali limitazioni abbiamo su $\deg m_f(t)$? Dimostrazione di Hamilton-Cayley. (Cosa significa che un polinomio è completamente fattorizzabile? Perché se $A$ e $B$ sono simili allora si ha $p_A(A) = 0 \sse p_B(B) = 0$? Perché $p(t)\cdot q(t)\mid_{t=A} = q(t)\cdot p(t)\mid_{t=A}$ ?)
+		\item $\Dim V = n$ Cos'è una forma quadratica su $V$? $Q(V)$ è uno spazio vettoriale? Che dimensione ha? (dimostrazione del fatto che abbia quella dimensione) Continua ad esistere un isomorfismo tra $Q(V)$ e $PS(V)$ anche se $\Char \bbK = 2$? (Trovare un controesempio).
+		\item Caratterizzazione della diagonalizzabilità attraverso il polinomio minimo. Perché il polinomio minimo e quello caratteristico hanno gli stessi fattori?
+		\item Considera, dati $V$ e $W$ $\bbK$-spazi vettoriali, $W\times V$ come spazio vettoriale. Dimmi come sono definite la somma ed il prodotto per scalari. Quant'è $\dim W\times V$? (NON è il prodotto tra le due) Dimostra Grassmann usando la formula delle dimensioni su $W\times V$
+		\item Considera $\bbR^n$ come spazio affine euclideo. Cos'è una simmetria? Perché un'affinità si può scrivere come $AX+B$? Dimostra che se $f(0)=0$ e $f$ mantiene le combinazioni affini allora è lineare
+		\item Cos'è l'applicazione trasposta? Proprietà della trasposta, elencale e dimostrale. Se $f$ è diagonalizzabile, la trasposta è diagonalizzabile? E viceversa?
+		\item $A$ e ${}^tA$ sono simili? Dimostra che hanno lo stesso polinomio caratteristico e polinomio minimo.
+		\item Considera $(\bbR^n, \scal{\cdot}{\cdot})$. Cos'è $\mbox{O}(\bbR^n, \scal{\cdot}{\cdot})$? Generatori di $\mbox{O}(\bbR^n, \scal{\cdot}{\cdot})$? (Ovvero decomposizione in riflessioni) Forma canonica di una simmetria?
+		\item Teorema di Rouché-Capelli. (Perché le operazioni di Gauss mantengono il rango della matrice? Dimostra che rango per righe è uguale al rango per colonne). Enuncia e dimostra il criterio dei minori invertibili e quello dei minori orlati.
+		\item Criterio dei minori principali e di Jacobi (Se ho solo l'ipotesi che solo alcuni dei determinanti dei minori principali siano diversi da $0$ (cioè i primi $r$ minori, mentre per quelli successivi non so nulla) cosa si può dire della segnatura?)
+		\item Date due coniche nel piano, come si decide se sono affinemente equivalenti o no? (Perché si usano matrici $3\times 3$ per rappresentare le coniche in $\bbR^2$? Perché abbiamo scelto l'indice di Witt come invariante e non la segnatura?)
+		\item Dimostra che $\omega(\phi) = \min \{i_{+}(\phi), i_{-}(\phi)\} + \Dim \Rad \phi$ e decomposizione di Witt
+		\item Dimostra che esiste una base ciclica per $f \sse m_f(t) = \pm p_f(t)$
+		\item Quante sono le famiglie di paraboloidi in $\bbR^3$? (ovvero quante forme canoniche di quadriche paraboloidi esistono) Che conica è il luogo dei punti equidistanti da una sfera e da un piano esterno ad essa?
+		\item Data una matrice simmetrica $S \in \Symm(n,\bbR)$ e definita positiva $\exists ! A \in \Symm(n, \bbR)$ definita positiva $\tc S = A^2$
+		\item Dimostra che una matrice triangolare in uno spazio euclideo può essere triangolata attraverso una matrice ortogonale
+		\item Teorema di Triangolabilità
+		\item $f \in \Isom(\bbR^3)$. $f$ diretta e con almeno un punto fisso. Che tipo di isometria può essere? Dimostra il teorema di classificazione delle isometrie. Senza usare il teorema di classificazione, come potevi arrivare allo stesso risultato? (Numero di riflessioni che servono per generarla)
+		\item $V$ spazio vettoriale, $\phi \in \PS(V)$, $W \ssv V$. Condizioni per cui $\phi\mid_W$ è non degenere. (Se $\phi$ è non degenere, $\phi\mid_W$ è non degenere?) Dimostra $\phi\mid_W$ è non degenere $\sse V = W^\bot \oplus W$
+		\item Teorema di Sylvester reale (e spiegazione dell'algoritmo di Lagrange)
+		\item Trovare una famiglia infinita di rette di $\bbR^3$ a due a due sghembe
+		\item $\phi \in \PS(V)$ definito positivo. $(V, \phi)$ euclideo. $f \in \End(V)$. $\Psi(x,y) := \phi(f(x), f(y))$. Calcolare la segnatura di $\Psi$
+		\item $phi: V\times V^{*} \rar \bbK$ definita da $(v, f) \mapsto f(v)$ è bilineare? Calcolane radicale destro e radicale sinistro. Perché potevi dire che $\Rad_{SX} \phi = \{0\}$ anche solo sapendo che $\Rad_{DX} \phi = \{0\}$? (siccome $\Dim V = \Dim V^{*}$ il rango di $\mathfrak{m}_{\mathcal{B}}(\phi)$ è molto utile)
+		\item Teorema di Riesz e definizione di aggiunto
+		\item $(V, \phi)$ euclideo. $f = f^{*} \implies f$ ortogonalmente diagonalizzabile.
+		\item $(V, \phi)$ euclideo. $f \circ f^{*} = f^{*} \circ f \implies \exists \cB \tc \mathfrak{m}_{\cB}(f)$ è simmetrica.
+	\end{itemize}
+\end{document}
