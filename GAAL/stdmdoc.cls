@@ -9,9 +9,14 @@
 \RequirePackage[italian]{babel}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{amsthm} % Per definire \newtheorem
+
 \RequirePackage{xifthen}
 \RequirePackage{xparse}
 \RequirePackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\RequirePackage[linktoc=all]{hyperref} % Per i collegamenti ipertestuali. [linktoc=all] mette i link nell'indice
+\RequirePackage{color} % Per i comandi \textcolor{'colore'}{'testo da colorare'} e \color{'colore'}
+\RequirePackage{hhline} % Per fare tabelle variegate
 
 
 % https://it.sharelatex.com/blog/2011/03/27/how-to-write-a-latex-class-file-and-design-your-own-cv.html
@@ -73,10 +78,28 @@
 
 % Oggetti utili per dare spaziatura al corpo del testo e per aggiungere note a margine
 \newcommand{\Nextblock}{{\vskip 1.5ex}\noindent}
-\newcommand{\paragrafo}[1]{{\vskip 3ex}{\normalfont\large\bf\noindent{#1}}{\newline}}
+\newcommand{\paragrafo}[1]{{\vskip 3ex}{\normalfont\large\bf\noindent{#1}}{\hskip 3ex}}
 \newcommand{\Nota}[1]{\marginpar{\footnotesize{\vskip 4ex}#1}}
 
 % Parole più usate in matematica
+\newtheorem{mydef}{Definizione}[section]
+\newtheorem{mythm}{Teorema}[section]
+\newtheorem{myex}{Esercizio}[section]
+\newtheorem{myes}{Esempio}[section]
+\newtheorem{mylemma}{Lemma}[section]
+\newtheorem{myprop}{Proposizione}[section]
+\newtheorem{mycor}{Corollario}[section]
+\newtheorem{myobs}{Osservazione}[section]
+
+\newtheorem*{mydef*}{Definizione}
+\newtheorem*{mythm*}{Teorema}
+\newtheorem*{myex*}{Esercizio}
+\newtheorem*{myes*}{Esempio}
+\newtheorem*{mylemma*}{Lemma}
+\newtheorem*{myprop*}{Proposizione}
+\newtheorem*{mycor*}{Corollario}
+\newtheorem*{myobs*}{Osservazione}
+
 \NewDocumentCommand{\Teorema}{g}{
   \IfNoValueTF{#1}
 	{\paragrafo{Teorema}}
@@ -107,6 +130,16 @@
 	{\paragrafo{Osservazione}}
 	{\paragrafo{Osservazione {\it (#1)}}}}
 
+\NewDocumentCommand{\Proposizione}{g}{
+  \IfNoValueTF{#1}
+	{\paragrafo{Proposizione}}
+	{\paragrafo{Proposizione {\it (#1)}}}}
+
+\NewDocumentCommand{\Esempio}{g}{
+  \IfNoValueTF{#1}
+	{\paragrafo{Esempio}}
+	{\paragrafo{Esempio {\it (#1)}}}}
+
 \NewDocumentCommand{\Achtung}{g}{
   \IfNoValueTF{#1}
 	{\paragrafo{Achtung!}}
@@ -124,7 +157,7 @@
 \def\mydeflett#1{\expandafter\def\csname bb#1\endcsname{\mathbb{#1}}
 		\expandafter\def\csname c#1\endcsname{\mathcal{#1}}
 		\expandafter\def\csname k#1\endcsname{\mathfrak{#1}}
-		\expandafter\def\csname b#1\endcsname{\mathbf{#1}}}
+		\expandafter\def\csname bl#1\endcsname{\mathbf{#1}}}
 \def\mydefalllett#1{\ifx#1\mydefalllett\else\mydeflett#1\expandafter\mydefalllett\fi}
 \mydefalllett ABCDEFGHIJKLMNOPQRSTUVWXYZ\mydefalllett
 
@@ -144,11 +177,18 @@
 	{\mathbb{Z}_{#1}}}
 
 \NewDocumentCommand{\de}{gg}{
-  \IfNoValueTF{#1}
-	{\mbox{d}}
-	{\IfNoValueTF{#2}
-		{\partial_{#1}}
-		{\frac{\partial {#1}}{\partial {#2}}}
+	\IfNoValueTF{#1}
+		{\mbox{d}}
+		{\IfNoValueTF{#2}	{\mbox{d}#1}
+			{\frac{\mbox{d}#1}{\mbox{d}#2}}
+	}
+}
+
+\NewDocumentCommand{\dpar}{gg}{
+	\IfNoValueTF{#1}
+		{\partial}
+		{\IfNoValueTF{#2}	{\partial_{#1}}
+			{\frac{\partial #1}{\partial #2}}
 	}
 }
 
@@ -157,7 +197,8 @@
 \DeclareOption{GeneralMath}
 {
 	\newcommand{\sse}{\Leftrightarrow}
-	\newcommand{\rar}{\Rightarrow}
+	\newcommand{\Rar}{\Rightarrow}
+	\newcommand{\rar}{\rightarrow}
 	\newcommand{\ol}[1]{\overline{#1}}
 	\newcommand{\ot}[1]{\widetilde{#1}}
 	\newcommand{\oc}[1]{\widehat{#1}}
