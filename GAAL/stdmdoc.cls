@@ -4,7 +4,7 @@
 \RequirePackage{titlesec} % Per modificare i titoli delle sezioni
 \RequirePackage{fancyhdr} % Per modificare l'intestazione ed il piè di pagina
 \RequirePackage{bm}
-
+%\RequirePackage{mbboard}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[italian]{babel}
 \RequirePackage{amsmath}
@@ -161,7 +161,7 @@
 \def\mydefalllett#1{\ifx#1\mydefalllett\else\mydeflett#1\expandafter\mydefalllett\fi}
 \mydefalllett ABCDEFGHIJKLMNOPQRSTUVWXYZ\mydefalllett
 
-\def\mydefgreek#1{\expandafter\def\csname b#1\endcsname{\text{\boldmath$\mathbf{\csname #1\endcsname}$}}}
+\def\mydefgreek#1{\expandafter\def\csname bl#1\endcsname{\text{\boldmath$\mathbf{\csname #1\endcsname}$}}}
 \def\mydefallgreek#1{\ifx\mydefallgreek#1\else\mydefgreek{#1}%
    \lowercase{\mydefgreek{#1}}\expandafter\mydefallgreek\fi}
 \mydefallgreek {Gamma}{Delta}{Theta}{Lambda}{Xi}{Pi}{Sigma}{Upsilon}{Phi}{Varphi}{Psi}{Omega}{alpha}{beta}{gamma}{delta}{epsilon}{varepsilon}{zeta}{eta}{theta}{iota}{kappa}{lambda}{mu}{nu}{xi}{omicron}{pi}{rho}{sigma}{tau}{upsilon}{phi}{varphi}{chi}{psi}{omega}\mydefallgreek
@@ -178,8 +178,8 @@
 
 \NewDocumentCommand{\de}{gg}{
 	\IfNoValueTF{#1}
-		{\mbox{d}}
-		{\IfNoValueTF{#2}	{\mbox{d}#1}
+		{\mbox{ d}}
+		{\IfNoValueTF{#2}	{\mbox{ d}#1}
 			{\frac{\mbox{d}#1}{\mbox{d}#2}}
 	}
 }
@@ -188,7 +188,7 @@
 	\IfNoValueTF{#1}
 		{\partial}
 		{\IfNoValueTF{#2}	{\partial_{#1}}
-			{\frac{\partial #1}{\partial #2}}
+			{\frac{\partial {#1}}{\partial {#2}}}
 	}
 }
 
@@ -216,7 +216,9 @@
 	\newcommand{\End}{\mbox{End }}
 	\newcommand{\Rad}{\mbox{Rad }}
 	\newcommand{\Ann}{\mbox{Ann }}
+	\newcommand{\Sp}{\mbox{Sp }}
 	\newcommand{\Rk}{\mbox{rk }}
+	\newcommand{\Tr}{\mbox{tr }}
 	\newcommand{\GL}{\mbox{GL}}
 	\newcommand{\Isom}{\mbox{Isom}}
 	\newcommand{\Fix}{\mbox{Fix }}
@@ -226,6 +228,7 @@
 	\newcommand{\Supp}{\mbox{Supp }}
 	\newcommand{\Span}{\mbox{Span }}
 	\newcommand{\Symm}{\mbox{Sym }}
+	\newcommand{\Asymm}{\mbox{Asym }}
 	\newcommand{\Img}{\mbox{Im }}
 	\newcommand{\Id}{\mbox{id}}
 	\newcommand{\PS}{\mbox{PS }}
@@ -234,6 +237,7 @@
 
 	\makeatletter
 	% Permette di fare sistemi di equazioni
+		\newcommand{\hsystem}[1][]{$\left. \begin{array}{c} \gobblenext }%
 		\newcommand{\system}[1][]{$\left\{ \begin{array}{c}  \gobblenext }
 		\newcommand{\gobblenext}[1]{#1\@ifnextchar\bgroup{\\ \gobblenext}{ \end{array} \right.$ }}% Gobble next "argument"
 	\makeatother
