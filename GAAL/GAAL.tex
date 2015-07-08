@@ -40,9 +40,50 @@
 		\item Teorema di Sylvester reale (e spiegazione dell'algoritmo di Lagrange)
 		\item Trovare una famiglia infinita di rette di $\bbR^3$ a due a due sghembe
 		\item $\phi \in \PS(V)$ definito positivo. $(V, \phi)$ euclideo. $f \in \End(V)$. $\Psi(x,y) := \phi(f(x), f(y))$. Calcolare la segnatura di $\Psi$
-		\item $phi: V\times V^{*} \rar \bbK$ definita da $(v, f) \mapsto f(v)$ è bilineare? Calcolane radicale destro e radicale sinistro. Perché potevi dire che $\Rad_{SX} \phi = \{0\}$ anche solo sapendo che $\Rad_{DX} \phi = \{0\}$? (siccome $\Dim V = \Dim V^{*}$ il rango di $\mathfrak{m}_{\mathcal{B}}(\phi)$ è molto utile)
+		\item $\phi: V\times V^{*} \rar \bbK$ definita da $(v, f) \mapsto f(v)$ è bilineare? Calcolane radicale destro e radicale sinistro. Perché potevi dire che $\Rad_{SX} \phi = \{0\}$ anche solo sapendo che $\Rad_{DX} \phi = \{0\}$? (siccome $\Dim V = \Dim V^{*}$ il rango di $\mathfrak{m}_{\mathcal{B}}(\phi)$ è molto utile)
 		\item Teorema di Riesz e definizione di aggiunto
 		\item $(V, \phi)$ euclideo. $f = f^{*} \implies f$ ortogonalmente diagonalizzabile.
-		\item $(V, \phi)$ euclideo. $f \circ f^{*} = f^{*} \circ f \implies \exists \cB \tc \mathfrak{m}_{\cB}(f)$ è simmetrica.
+		\item $(V, \phi)$ euclideo. Sia $f$ triangolabile. $f \circ f^{*} = f^{*} \circ f \implies \exists \cB \tc \mathfrak{m}_{\cB}(f)$ è simmetrica.
+	\end{enumerate}
+
+	\section*{Sessione Luglio 2015}
+	\begin{enumerate}
+		\item Condizioni equivalenti all'anisotropia di un prodotto scalare in $\bbR$ ed in $\bbC$
+		\item Dimostrazione della decomposizione di Witt
+		\item Definizione di spazio e sottospazio affine. Esistenza ed unicità della giacitura per sottospazi affini
+		\item Le matrici diagonalizzabili sono un sottospazio vettoriale di $\kM(n,\bbK)$?
+		\item Dimostra che una matrice è diagonalizzabile se e solo se il suo polinomio minimo è prodotto di fattori lineari distinti
+		\item Cos'è una conica? Mostra che il suo supporto è ben definito (cioè non dipende dal rappresentante della classe di euivalenza di polinomi). Il supporto individua completamente la conica? Mostra esempi di coniche diverse in $\bbR^2$ che hanno gli stessi supporti. Continua ad essere vero anche in $\bbC^2$? Esistono coniche con supporto costituito da un solo punto in $\bbC^2$?
+		\item Dimostrazione del Teorema di Rouche-Capelli. Cosa si intende per rango di una matrice? Dimostrazione del criterio dei minori invertibili e caratterizzazione del rango come numero di pivot di una ridotta a scalini.
+		\item $f\in\End(V)$ e consideriamo l'applicazione trasposta ${}^tf$. Supponiamo che $f$ sia triangolabile. Posso dire qualcosa sulla forma di Jordan di ${}^tf$, se esiste? Mostrare poi che $p_A(t) = p_{{}^tA}(t)$
+		\item Prendiamo $V$ come spazio vettoriale su $\bbR$ ed in $\PS(V)$ prendiamo l'insieme $T$ dei prodotti scalari con segnatura fissata $\sigma = (a,b,c)$. Per quali $a,b,c$ $T$ è uno spazio vettoriale? Si può dire qualcosa sul sottospazio vettoriale generato da $T$? (Ad esempio, può essere tutto $\PS(V)$)
+		\item Cos'è l'ideale di un endomorfismo? Perché per ciascun endomorfismo esiste un polinomio $\neq 0$ nell'ideale? (a priori l'ideale potrebbe essere l'ideale banale) Dimostrazione di Hamilton-Cayley.
+		\item Sia $\varphi$ prodotto scalare definito positivo su $V$, spazio vettoriale reale. $f\in\End(V)$. Sia $b(x,y) := \varphi(f(x), f(y))$. Qual è la segnatura di $b$? Se invece $\varphi$ è solo non degenere (ma comunque non definito) cosa si può dire di $\sigma(b)$?
+		\item Se hai un'isometria in $\bbR^3$, inversa e con almeno un punto fisso. Cosa si può dire? Inoltre, cosa può essere la composizione di 3 riflessioni (in $\bbR^3$)? Fai un esempio di un'isometria che composta con una traslazione abbia qualche punto fisso. \'E vero che per ogni isometria $f$ esiste una traslazione $\tau$ tale che $\Fix (\tau\circ f) \neq \emptyset$?
+		\item Prendiamo due ellissi in $\bbR^3$, $\cC_1$ e $\cC_2$. Siano poi $P_1 \in \text{Supp } \cC_1, P_2 \in \text{Supp } \cC_2$. Esiste sempre un'affinità $\varphi$ tale che $\varphi(P_1) = P_2$, $\varphi(\cC_1) = \cC_2$? L'affinità che manda una conica nel suo modello canonico è unica? Definizione di conica. Cosa significa applicare un'affinità ad una conica?
+		\item Enuncia e dimostra il teorema di Sylvester reale e complesso. Quand'è che due prodotti scalari si dicono isometrici? Sylvester ci permette di dire se due prodotti scalari sono isometrici? Definizione di $i_{+}, i_{-}, i_0 (\varphi)$?
+		\item Cosa significa che una matrice simmetrica è definita positiva? Ha qualcosa a che fare con gli autovalori della matrice? Enuncia e dimostra il criterio dei minori principali
+		\item Dimostrazione della Formula di Grassmann affine
+		\item Supponiamo di essere in $\bbR^n$ e di avere $f\in\End(\bbR^n)$. Fissiamo $1 < k < n$ e supponiamo che tutti i sottospazi di dimensione $k$ siano $f$-invarianti. Chi sono le $f$ che verificano questa proprietà?
+		\item C'è qualcosa di simile a Sylvester su $\bbQ$? Ovvero possiamo sempre normalizzare una base ortonormale?
+		\item Cos'è una quadrica a centro? Può essere che un'affinità mandi una conica a centro in una conica senza centro? Si può costruire una quadrica di $\bbR^3$ il cui luogo dei centri (ovvero tutti e soli i centri) sia costituito da due piani paralleli non coincidenti?
+		\item $f\in\End(V)$, $V$ spazio vettoriale su $\bbR$. Enuncia la forma di Jordan Reale e deducila da quella complessa.
+		\item Su $\bbR^n$ solitamente utilizziamo la distanza euclidea. Com'è definita? Supponiamo ora di avere $f: \bbR^n \rar \bbR^n$ che conserva la distanza e tale che $f(0) = 0$. Dimostra allora che $f$ è lineare.
+		\item Cos'è una base ortonormale? Supponiamo che tu abbia un prodotto scalare non degenere ed un insieme ortogonale di vettori tutti normalizzati (siamo in uno spazio vettoriale reale) e nessuno di questi vettori è il vettore nullo. Puoi dire che questo insieme di vettori in realtà è una base?
+		\item Prendiamo due rette sghembe $r_1, r_2$ in $\bbR^3$. Al variare di $P \in \bbR^3$ è vero che esiste una retta che passa per $P$ ed interseca sia $r_1$ sia $r_2$? Qual'è il luogo dei punti per cui non funziona? (Non si accettano soluzioni analitiche poiché non le piacciono i conti, trovare una soluzione geometrica)
+		\item $M \in \kM(n, \bbK)$, $\Det M \neq 0$. Sia $\Dim V = n$, $\cB$ una base di $V$. Si può (e se sì come) interpretare $M$ come matrice di cambio di base?
+		\item Parla del determinante (ovvero assiomi, costruzione, esistenza ed unicità). Dimostrazione del Teorema di Binet
+		\item Enuncia e dimostra il teorema di Ortogonalizzazione Simultanea. Definizione di aggiunto. Ci sono problemi a definire l'aggiunto se il prodotto scalare è solo non degenere? Il teorema spettrale continua a valere anche se $\varphi$ è solo non degenere?
+		\item Parla dell'SD-equivalenza e dimostra che il rango è un'invariante completo di SD-equivalenza
+		\item Definizione di spazio affine. Cos'è {\it una} combinazione affine di un certo numero di punti? Qual è la condizione che ci permette di definire una combinazione affine, indipendentemente dal punto scelto per farla? Mostra che $\text{comb}_\text{a} (P_0, \ldots, P_k)$ è un sottospazio affine, ovvero è chiuso per combinazioni affini.
+		\item Se prendo tre punti in $\bbR^3$ cosa può venire se ne faccio tutte le combinazioni affini? Cos'è il baricentro di un insieme di punti? Se prendiamo una trasformazione affine $f:\bbR^2 \rar \bbR^2$ cosa succede al baricentro? \\ In $\bbR^2$ prendiamo il luogo $S$ definito dall'equazione $\{ x^2 + y^2 = 1\}$ e supponiamo che $f$ sia un'affinità tale che $f(S) = S$. Cosa si può dire di questa $f$? Come sono fatte tutte le $f$ che lasciano fisso $S$?. Dimostriamo che $f$ è lineare. Dimostriamo poi che $f$ è un'isometria.
+		\item Cos'è uno spazio vettoriale finitamente generato? Definizioni di lineare indipendenza, combinazione lineare. Perché tutti gli spazi vettoriali finitamente generati ammettono una base finita? (Algortimo di estrazione di base) Perché lo spazio dei polinomi $\bbK[t]$ non è finitamente generato?
+		\item Dato $V$ consideriamo $V^{*}$. Dimostra che se $V$ è finitamente generato allora $\Dim V = \Dim V^{*}$, ovvero costuisci un isomorfismo tra $V$ e $V^{*}$. Il fatto che $V$ sia isomorfo a $V^{*}$ è vero anche in dimensione infinita? (Si consideri come esempio $c_0$, ovvero lo spazio vettoriale su $\bbR$ delle successioni a valori in $\bbR$ definitivamente nulle. Una base di $c_0^{*}$ ha cardinalità del continuo, mentre una di $c_0$ è numerabile)
+		\item Enuncia e dimostra il Teorema di Riesz. Nel caso in cui $\Dim V$ sia infinita vale ancora che $F_\phi$ sia iniettiva?
+		\item Cosa si intende per indice di Witt di un prodotto scalare? Se $\varphi$ è non degenere dimostra che $\omega(\varphi) \le \frac{\Dim V}{2}$. Se $\varphi$ è degenere invece, come si caratterizza $\omega(\varphi)$?
+		\item Cos'è la somma diretta di due sottospazi? Enuncia e dimostra le condizioni equivalenti per la somma diretta multipla di più sottospazi. Se ho tre sottospazi e so che $V\oplus W$, $W\oplus U$, $U\oplus V$, è vero che $V\oplus W\oplus U$?
+		\item Supponiamo che $f\in\End(V)$ abbia $n = \Dim V$ autovalori distinti. Dimostra allora che $V = \oplus_{\lambda_i \in \text{Sp }(f)} V_{\lambda_i}$
+		\item Classificazione affine delle coniche (e sistemi completi di invarianti). Perché abbiamo preferito usare l'indice di Witt e non la segnatura per classificare le coniche in $\bbR^2$?
+		\item Dimostrazione della decomposizione di Witt su $\bbR$
 	\end{enumerate}
 \end{document}
