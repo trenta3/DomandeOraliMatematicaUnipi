@@ -4,6 +4,7 @@
 \RequirePackage{titlesec} % Per modificare i titoli delle sezioni
 \RequirePackage{fancyhdr} % Per modificare l'intestazione ed il piè di pagina
 \RequirePackage{bm}
+\RequirePackage{bbm}
 %\RequirePackage{mbboard}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[italian]{babel}
@@ -153,6 +154,13 @@
 	{\paragrafo{}}
 	{\paragrafo{#1}}}
 
+\newcommand{\frdx}{ \framebox[\width]{ $\Rightarrow$ } }
+\newcommand{\frsx}{ \framebox[\width]{ $\Leftarrow$ } }
+\newcommand{\opp}{\text{ oppure }}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\newcommand{\crossmark}{$\times$}
+
+
 %mathbb mathcal mathfrak e mathbm per le lettere dell'alfabeto e anche mathbb per quelle greche
 \def\mydeflett#1{\expandafter\def\csname bb#1\endcsname{\mathbb{#1}}
 		\expandafter\def\csname c#1\endcsname{\mathcal{#1}}
@@ -178,9 +186,9 @@
 
 \NewDocumentCommand{\de}{gg}{
 	\IfNoValueTF{#1}
-		{\mbox{ d}}
-		{\IfNoValueTF{#2}	{\mbox{ d}#1}
-			{\frac{\mbox{d}#1}{\mbox{d}#2}}
+		{\text{ d}}
+		{\IfNoValueTF{#2}	{\text{ d}#1}
+			{\frac{\text{d}#1}{\text{d}#2}}
 	}
 }
 
@@ -247,4 +255,6 @@
 %---Comandi Strani---
 \newcommand{\TODO}{{\LARGE\bf TO DO}}
 
+
 \sloppy
+
