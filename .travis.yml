@@ -1,0 +1,30 @@
+language: ruby
+rvm:
+- 2.2
+
+branches:
+  only:
+  - master
+
+before_install:
+    - sudo apt-get -qq update
+    - sudo apt-get -y install texlive-latex-base texlive-base texlive-lang-italian latexmk ruby-dev ruby wget
+
+install: gem install kramdown
+
+script:
+- wget https://github.com/trenta3/stdmdoc/raw/master/stdmdoc.cls -O stdmdoc.cls
+- find . -iname "." -type d -o -iname ".*" -type d -prune -o -type d -exec cp stdmdoc.cls {}/ \;
+- cp .site/do .
+- find . -type f -iname "*.tex" -exec ./do compile {} \;
+- find . -type f -iname "*.pdf" -exec ./do checkout {} \;
+- find . -type f -iname "*.md" -exec ./do checkout {} \;
+- cp -r .site/public ../compiled-pdfs/
+- cp .site/indexing ../
+- cd ../ && ./indexing compiled-pdfs
+
+deploy:
+  skip_cleanup: true
+  provider: surge
+  project: ../compiled-pdfs/
+  domain: domandeoralimatematicaunipi.surge.sh
