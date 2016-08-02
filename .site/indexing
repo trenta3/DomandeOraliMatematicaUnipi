@@ -8,9 +8,9 @@
 require 'kramdown'
 
 def process_directory (dirpath)
-	sitetitle = "Prova di Travis"
-	sitetagline = "Si capisce dal titolo"
-	sitebaseurl = "http://prova-di-travis.surge.sh"
+	sitetitle = "DOMU"
+	sitetagline = "Domande Orali di Matematica (Unipi)"
+	sitebaseurl = "http://domandeoralimatematicaunipi.surge.sh"
 
 	entries = [];
 	directories = [];
