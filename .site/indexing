@@ -1,0 +1,150 @@
+#!/usr/bin/env ruby
+
+# Script in ruby che crea una pagina html per ogni directory con l'elenco dei file
+# che ci sono dentro per poterla indicizzare. Converte gli INDEX.md e li incorpora
+
+# Da includere dei css e mathjax nella head
+
+require 'kramdown'
+
+def process_directory (dirpath)
+	sitetitle = "Prova di Travis"
+	sitetagline = "Si capisce dal titolo"
+	sitebaseurl = "http://prova-di-travis.surge.sh"
+
+	entries = [];
+	directories = [];
+	mdcode = "";
+
+	headfile = <<-endoffile
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+      {{sitetitle}} &middot; {{sitetagline}}
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{sitebaseurl}}/public/css/poole.css">
+  <link rel="stylesheet" href="{{sitebaseurl}}/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="{{sitebaseurl}}/public/favicon.ico">
+
+      <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$']]}
+      });
+      </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+endoffile
+
+	bodyfile = <<-endoffile
+<!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="{{sitebaseurl}}/" title="Home">{{sitetitle}}</a>
+            <small>{{sitetagline}}</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        {{content}}
+      </div>
+    </div>
+endoffile
+
+	head = headfile.gsub('{{sitetitle}}', "#{sitetitle}").gsub('{{sitetagline}}', "#{sitetagline}").gsub('{{sitebaseurl}}', "#{sitebaseurl}")	
+	body = bodyfile.gsub('{{sitetitle}}', "#{sitetitle}").gsub('{{sitetagline}}', "#{sitetagline}").gsub('{{sitebaseurl}}', "#{sitebaseurl}")
+
+	puts "[LOG] Examining directory #{dirpath}"
+	Dir.entries(dirpath).sort.each do |entry|
+		puts "[LOG] Entry found: #{entry}"
+		if entry == "." then
+			# Se è la cartella stessa la ignoriamo
+			puts "[LOG] Entry . ignored"
+		elsif entry == ".." then
+			# Se è la cartella superiore la elenchiamo
+			puts "[LOG] Entry .. registered"
+			entries << ["..", "../index.html"]
+		elsif entry == "public" then
+			# Se la cartella è public la togliamo dall'indice
+			puts "[LOG] Entry public ignored"
+		elsif entry =~ /^index.html$/i then
+			# L'index non lo indicizziamo e verrà sovrascritto
+			puts "[LOG] Entry index.html skipped"
+		elsif entry =~ /^index\.md$/i then
+			# Se l'entry contiene nel nome index.md (case-insensitive)
+			# allora ne aggiungiamo il testo al nostro file, prima
+			# che compaia l'elenco delle directories
+			puts "[LOG] #{entry} is index-related. Adding markdown code to ours"
+			mdcode += File.read("#{dirpath}/#{entry}") + "\n\n---\n\n"
+			# E rimuoviamo il .md
+			File.delete("#{dirpath}/#{entry}")
+		elsif File.directory?("#{dirpath}/#{entry}") then
+			# Se è un'altra cartella ci vorremo tornare più avanti
+			puts "[LOG] #{entry} Is dir. Saving for future work"
+			entries << ["#{entry}/", "#{entry}/index.html"]
+			directories << "#{dirpath}/#{entry}"
+		elsif File.file?("#{dirpath}/#{entry}") then
+			# Se è un file vogliamo elencarlo
+			# C'è da aggiungere che se è markdown allora lo convertiamo in html
+			if entry =~ /^.*\.md$/ then
+				base = File.basename(entry, ".md")
+				puts "[LOG] #{entry} is markdown. Converting"
+				output = Kramdown::Document.new(File.read("#{dirpath}/#{entry}")).to_html
+				File.open("#{dirpath}/#{base}.html", 'w') do |f|
+					f.puts "<html>" + head + "<body>"
+					f.puts body.gsub('{{content}}', output)
+					f.puts "</body></html>"
+				end
+				# E poi lo eliminiamo
+				File.delete("#{dirpath}/#{entry}")
+				entries << ["#{base}", "#{base}.html"]
+			else
+				puts "[LOG] #{entry} Is file. Registered"
+				entries << ["#{entry}", "#{entry}"]
+			end
+		else
+			puts "[LOG] Unrecognized #{entry}"
+			exit 1
+		end
+	end
+
+	puts "[LOG] Producing html"
+	mdcode += "# Elenco file nella directory\n\n"
+	entries.each do |e|
+		mdcode += "* [`#{e[0]}`](#{e[1]})\n\n"
+	end
+
+	puts "[LOG] Saving html"
+	output = Kramdown::Document.new(mdcode).to_html
+	File.open("#{dirpath}/index.html", 'w') do |f|
+		f.puts "<html>" + head + "<body>"
+		f.puts body.gsub('{{content}}', output)
+		f.puts "</body></html>"
+	end
+
+	directories.each do |dir|
+		puts "[LOG] MOVING TO NEXT DIR"
+		process_directory("#{dir}")
+	end	
+end
+
+
+# Testiamo che ci sia almeno un argomento
+if ARGV.size < 1 then
+	puts "[ERROR] Almeno un parametro richiesto. Utilizzo: indexing dirpath"
+else
+	process_directory(ARGV[0])
+end
