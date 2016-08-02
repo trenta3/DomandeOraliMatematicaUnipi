@@ -9,7 +9,7 @@ branches:
 before_install:
     - sudo apt-get -qq update
     - sudo apt-get -y install texlive-latex-base texlive-base texlive-latex-extra texlive-lang-italian ruby-dev ruby wget
-    - sudo apt-get -y install texlive-fonts-extra latexmk texlive-latex-recommended
+    - sudo apt-get -y install texlive-fonts-extra latexmk texlive-latex-recommended texlive-latex3
 
 install: gem install kramdown
 
