@@ -7,3 +7,5 @@
 *#
 stdmdoc.cls
 *.pdf
+*.fls
+*.fdb_latexmk
