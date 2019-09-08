@@ -14,7 +14,6 @@ before_install:
 install: gem install kramdown
 
 script:
-- wget https://github.com/trenta3/stdmdoc/raw/master/stdmdoc.cls -O stdmdoc.cls
 - find . -iname "." -type d -o -iname ".*" -type d -prune -o -type d -exec cp stdmdoc.cls {}/ \;
 - cp .site/do .
 - find . -type f -iname "*.tex" -exec ./do compile {} \;
